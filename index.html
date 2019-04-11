@@ -38,11 +38,11 @@
         // TODO: Change code below to process the `response` object:
         console.log(response.result);
         var response = document.getElementById("response");
-        response.innerHTML(response.result);
+        response.innerHTML = response.result;
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
         var response = document.getElementById("response");
-        response.innerHTML(response.result);
+        response.innerHTML = response.result.error.message;
       });
     }
 
