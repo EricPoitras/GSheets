@@ -37,8 +37,8 @@
       request.then(function(response) {
         // TODO: Change code below to process the `response` object:
         console.log(response.result);
-        var response = document.getElementById("response");
-        response.innerHTML = JSON.stringify(response.result);
+        var response_ele = document.getElementById("response");
+        response_ele.innerHTML = JSON.stringify(response.result);
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
         var response = document.getElementById("response");
