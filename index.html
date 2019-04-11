@@ -42,7 +42,7 @@
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
         var response_ele = document.getElementById("response");
-        response_ele.innerHTML = response.result.error.message;
+        response_ele.innerHTML = "You must sign in to your YouTube account to get permission to read the data from the sheet...";
       });
     }
 
