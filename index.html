@@ -42,7 +42,7 @@
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
         var response = document.getElementById("response");
-        response.innerHTML = JSON.stringify(response.result.error.message);
+        response_ele.innerHTML = JSON.stringify(response.result.error.message);
       });
     }
 
