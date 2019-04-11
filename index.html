@@ -10,7 +10,8 @@
    
     <button id="signin-button" onclick="handleSignInClick()">Sign in</button>
     <button id="signout-button" onclick="handleSignOutClick()">Sign out</button>
-    <button id="api-call" onclick="makeApiCall()">Call API</button>
+    <button id="api-call" onclick="makeApiCall()">Call API to GET Data</button>
+    <button id="api-call2" onclick="makeApiCall2()">Call API to POST Data</button>
     <p id="response"></p>
       
     <script>
@@ -43,6 +44,41 @@
         console.error('error: ' + reason.result.error.message);
         var response_ele = document.getElementById("response");
         response_ele.innerHTML = "You must sign in to your YouTube account to get permission to read the data from the sheet...";
+      });
+    }
+        
+        function makeApiCall2() {
+      var params = {
+        // The ID of the spreadsheet to update.
+        spreadsheetId: '1QXhL7WdCjnaISotgpmxysP2lcvPXueg1c8v6uA1aydY',  // TODO: Update placeholder value.
+
+        // The A1 notation of a range to search for a logical table of data.
+        // Values will be appended after the last row of the table.
+        range: 'Sheet1',  // TODO: Update placeholder value.
+
+        // How the input data should be interpreted.
+        valueInputOption: 'INPUT_VALUE_OPTION_UNSPECIFIED',  // TODO: Update placeholder value.
+
+        // How the input data should be inserted.
+        insertDataOption: 'INSERT_ROWS',  // TODO: Update placeholder value.
+      };
+            
+      var valueRangeBody = {
+        // TODO: Add desired properties to the request body.
+        [["newdata"],["newdata"]]
+      };
+
+
+      var request = gapi.client.sheets.spreadsheets.values.append(params, valueRangeBody);
+      request.then(function(response) {
+        // TODO: Change code below to process the `response` object:
+        console.log(response.result);
+        var response_ele = document.getElementById("response");
+        response_ele.innerHTML = JSON.stringify(response.result);
+      }, function(reason) {
+        console.error('error: ' + reason.result.error.message);
+        var response_ele = document.getElementById("response");
+        response_ele.innerHTML = "You must sign in to your YouTube account to get permission to write the data to the sheet...";
       });
     }
 
