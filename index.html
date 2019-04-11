@@ -41,7 +41,7 @@
         response_ele.innerHTML = JSON.stringify(response.result);
       }, function(reason) {
         console.error('error: ' + reason.result.error.message);
-        var response = document.getElementById("response");
+        var response_ele = document.getElementById("response");
         response_ele.innerHTML = JSON.stringify(response.result.error.message);
       });
     }
